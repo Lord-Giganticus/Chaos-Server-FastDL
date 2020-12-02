@@ -18,17 +18,8 @@ if steam_normal == "1":
         os.chdir(dir[0])
         for file in os.listdir(os.getcwd()):
                 if file.endswith('.bz2'):
-                    folder = os.getcwd()
-                    file = open('Run.bat','w')
-                    file.write('7z.exe x "')
-                    file.write(folder)
-                    file.write('\*.bz2" -o"')
-                    file.write(folder)
-                    file.write('"')
-                    file.close()
-                    os.system('cmd /c Run.bat')
-                    os.system('cmd /c del /f *.bat')
-        os.system('cmd /c del /f *.bz2')
+                    os.system('cmd /c 7z.exe x *.bz2')
+                    os.system('cmd /c del /f *.bz2')
     input("Complete. Press enter to exit.")
     exit()
 elif steam_normal =="2":
@@ -52,17 +43,9 @@ elif steam_normal =="2":
         os.chdir(dir[0])
         for file in os.listdir(os.getcwd()):
             if file.endswith('.bz2'):
-                folder = os.getcwd()
-                file = open('Run.bat','w')
-                file.write('7z.exe x "')
-                file.write(folder)
-                file.write('\*.bz2" -o"')
-                file.write(folder)
-                file.write('"')
-                file.close()
-                os.system('cmd /c Run.bat')
-                os.system('cmd /c del /f *.bat')
-        os.system('cmd /c del /f *.bz2')
+                if file.endswith('.bz2'):
+                    os.system('cmd /c 7z.exe x *.bz2')
+                    os.system('cmd /c del /f *.bz2')
     input("Complete. Press enter to exit.")
     exit()
 else:
