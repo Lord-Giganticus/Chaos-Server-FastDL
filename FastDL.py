@@ -2,6 +2,19 @@
 
 import os
 
+def extractfiles():
+    for dir in os.walk(os.getcwd()):
+        os.chdir(dir[0])
+        for file in os.listdir(os.getcwd()):
+            if file.endswith('.bz2'):
+                os.system('cmd /c 7z.exe x *.bz2')
+                os.system('cmd /c del /f *.bz2')
+def extractmaps():
+    for file in os.listdir(os.getcwd()):
+        if file.endswith('.bz2'):
+            os.system('cmd /c 7z.exe x *.bz2')
+            os.system('cmd /c del /f *.bz2')
+
 steam_normal = input("Is Steam installed in the defalt location?\nIf so enter 1.\nIf not enter 2.\n")
 if steam_normal == "1":
     if os.path.isdir("C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2") == False:
@@ -15,12 +28,7 @@ if steam_normal == "1":
     os.system('cmd /c unzip *zip')
     os.system('cmd /c del /f *.zip')
     os.system('cmd /c del /f *.exe')
-    for dir in os.walk(os.getcwd()):
-        os.chdir(dir[0])
-        for file in os.listdir(os.getcwd()):
-                if file.endswith('.bz2'):
-                    os.system('cmd /c 7z.exe x *.bz2')
-                    os.system('cmd /c del /f *.bz2')
+    extractfiles()
     maps = input("Do you wish to also download the maps from the server?\n If so, enter 1.\nIf not, enter 2.\n")
     if maps == "1":
         os.chdir(tf)
@@ -32,11 +40,7 @@ if steam_normal == "1":
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/cp_clash_royale.bsp.bz2 -o cp_clash_royale.bsp.bz2')
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/koth_tf2craps_b1.bsp.bz2 -o koth_tf2craps_b1.bsp.bz2')
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/my_world_x9b.bsp.bz2 -o my_world_x9b.bsp.bz2')
-        for file in os.listdir(os.getcwd()):
-            if file.endswith('.bz2'):
-                if file.endswith('.bz2'):
-                    os.system('cmd /c 7z.exe x *.bz2')
-                    os.system('cmd /c del /f *.bz2')
+        extractmaps()
         input("Complete. Press enter to exit.")
         exit()
     elif maps == "2":
@@ -60,12 +64,7 @@ elif steam_normal =="2":
     os.system('cmd /c unzip *zip')
     os.system('cmd /c del /f *.zip')
     os.system('cmd /c del /f *.exe')
-    for dir in os.walk(os.getcwd()):
-        os.chdir(dir[0])
-        for file in os.listdir(os.getcwd()):
-            if file.endswith('.bz2'):
-                os.system('cmd /c 7z.exe x *.bz2')
-                os.system('cmd /c del /f *.bz2')
+    extractfiles()
     maps = input("Do you wish to also download the maps from the server?\n If so, enter 1.\nIf not, enter 2.\n")
     if maps == "1":
         os.chdir(tf)
@@ -77,11 +76,7 @@ elif steam_normal =="2":
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/cp_clash_royale.bsp.bz2 -o cp_clash_royale.bsp.bz2')
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/koth_tf2craps_b1.bsp.bz2 -o koth_tf2craps_b1.bsp.bz2')
         os.system('cmd /c curl https://chaos-crew.000webhostapp.com/FastDL/tf/maps/my_world_x9b.bsp.bz2 -o my_world_x9b.bsp.bz2')
-        for file in os.listdir(os.getcwd()):
-            if file.endswith('.bz2'):
-                if file.endswith('.bz2'):
-                    os.system('cmd /c 7z.exe x *.bz2')
-                    os.system('cmd /c del /f *.bz2')
+        extractmaps()
         input("Complete. Press enter to exit.")
         exit()
     elif maps == "2":
